@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: '', redirectTo: 'places', pathMatch: 'full' },
   { path: 'home', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule) },
   {
     path: 'auth',
@@ -10,11 +10,11 @@ const routes: Routes = [
   },
   {
     path: 'places',
-    loadChildren: () => import('./places/places.module').then( m => m.PlacesPageModule)
+    loadChildren: () => import('./places/places.module').then(m => m.PlacesPageModule)
   },
   {
     path: 'bookings',
-    loadChildren: () => import('./bookings/bookings.module').then( m => m.BookingsPageModule)
+    loadChildren: () => import('./bookings/bookings.module').then(m => m.BookingsPageModule)
   }
 ];
 
