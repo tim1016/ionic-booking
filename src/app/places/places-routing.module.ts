@@ -30,20 +30,16 @@ const routes: Routes = [
           },
           {
             path: 'new',
-            loadChildren: () =>
-              import('./offers/new-offer/new-offer-routing.module').then(m => m.NewOfferPageRoutingModule)
+            loadChildren: () => import('./offers/new-offer/new-offer.module').then(m => m.NewOfferPageModule)
           },
           {
             path: 'edit/:placeId',
-            loadChildren: () =>
-              import('./offers/edit-offer/edit-offer-routing.module').then(m => m.EditOfferPageRoutingModule)
+            loadChildren: () => import('./offers/edit-offer/edit-offer.module').then(m => m.EditOfferPageModule)
           },
           {
             path: ':placeId',
             loadChildren: () =>
-              import('./offers/offer-bookings/offer-bookings-routing.module').then(
-                m => m.OfferBookingsPageRoutingModule
-              )
+              import('./offers/offer-bookings/offer-bookings.module').then(m => m.OfferBookingsPageModule)
           }
         ]
       },

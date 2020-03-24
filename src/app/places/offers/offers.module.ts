@@ -7,13 +7,17 @@ import { IonicModule } from '@ionic/angular';
 import { OffersPageRoutingModule } from './offers-routing.module';
 
 import { OffersPage } from './offers.page';
+import { NewOfferPageModule } from './new-offer/new-offer.module';
+import { NewOfferPageRoutingModule } from './new-offer/new-offer-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    OffersPageRoutingModule
+    OffersPageRoutingModule,
+    NewOfferPageModule,
+    NewOfferPageRoutingModule
   ],
   declarations: [OffersPage]
 })
