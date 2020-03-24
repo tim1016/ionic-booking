@@ -1,6 +1,10 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>Edit Offer</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button [defaultHref]="'/places/tabs/offers/'+ place.id"></ion-back-button>
+    </ion-buttons>
+
+    <ion-title>Edit {{place.title}} Offer</ion-title>
   </ion-toolbar>
 </ion-header>
 
