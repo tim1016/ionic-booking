@@ -9,6 +9,7 @@ import { OffersPageRoutingModule } from './offers-routing.module';
 import { OffersPage } from './offers.page';
 import { NewOfferPageModule } from './new-offer/new-offer.module';
 import { NewOfferPageRoutingModule } from './new-offer/new-offer-routing.module';
+import { OfferItemComponent } from './offer-item/offer-item.component';
 
 @NgModule({
   imports: [
@@ -19,6 +20,6 @@ import { NewOfferPageRoutingModule } from './new-offer/new-offer-routing.module'
     NewOfferPageModule,
     NewOfferPageRoutingModule
   ],
-  declarations: [OffersPage]
+  declarations: [OffersPage, OfferItemComponent]
 })
 export class OffersPageModule {}
