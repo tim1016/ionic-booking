@@ -32,8 +32,6 @@ export class PlaceDetailPage implements OnInit {
   }
 
   onBookPlace = () => {
-    // this.router.navigateByUrl
-    // this.navCtrl.navigateBack('/places/tabs/discover');
     this.actionSheetController
       .create({
         header: 'Choose an action',
@@ -64,7 +62,7 @@ export class PlaceDetailPage implements OnInit {
   openBookingModal(mode: 'select' | 'random') {
     console.log(mode);
     this.modalController
-      .create({ component: CreateBookingComponent, componentProps: { selectedPlace: this.place } })
+      .create({ component: CreateBookingComponent, componentProps: { selectedPlace: this.place, selectedMode: mode } })
       .then(modalEl => {
         modalEl.present();
         return modalEl.onDidDismiss();

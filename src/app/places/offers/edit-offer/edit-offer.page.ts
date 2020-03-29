@@ -37,7 +37,7 @@ export class EditOfferPage implements OnInit {
     });
   }
 
-  onEditOffer(form: NgForm) {
-    console.log(form);
+  onUpdateOffer() {
+    console.log(this.form);
   }
 }
