@@ -27,7 +27,9 @@ export class PlaceDetailPage implements OnInit {
         return;
       }
       const placeId = paramMap.get('placeId');
-      this.place = this.placesService.getPlace(placeId);
+      this.placesService.getPlace(placeId).subscribe(place => {
+        this.place = place;
+      });
     });
   }
 

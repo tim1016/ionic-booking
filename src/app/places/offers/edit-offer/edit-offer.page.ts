@@ -4,6 +4,7 @@ import { NavController } from '@ionic/angular';
 import { PlacesService } from '../../places.service';
 import { Place } from '../../place.model';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-edit-offer',
@@ -13,6 +14,7 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 export class EditOfferPage implements OnInit {
   place: Place;
   form: FormGroup;
+  placeSub: Subscription;
 
   constructor(private route: ActivatedRoute, private navCtrl: NavController, private placesService: PlacesService) {}
 
@@ -22,7 +24,7 @@ export class EditOfferPage implements OnInit {
       if (!placeId) {
         this.navCtrl.navigateBack('/places/tabs/offers');
       }
-      this.place = this.placesService.getPlace(placeId);
+      this.placeSub = this.placesService.getPlace(placeId).subscribe(place => (this.place = place));
       this.initForm();
     });
   }
