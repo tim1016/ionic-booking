@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { NavController } from '@ionic/angular';
+import { NavController, LoadingController } from '@ionic/angular';
 import { PlacesService } from '../../places.service';
 import { Place } from '../../place.model';
 import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
@@ -16,7 +16,12 @@ export class EditOfferPage implements OnInit {
   form: FormGroup;
   placeSub: Subscription;
 
-  constructor(private route: ActivatedRoute, private navCtrl: NavController, private placesService: PlacesService) {}
+  constructor(
+    private route: ActivatedRoute,
+    private navCtrl: NavController,
+    private placesService: PlacesService,
+    private loadingController: LoadingController
+  ) {}
 
   ngOnInit() {
     this.route.paramMap.subscribe(paramMap => {
@@ -42,6 +47,16 @@ export class EditOfferPage implements OnInit {
   }
 
   onUpdateOffer() {
-    console.log(this.form);
+    if (!this.form.valid) return;
+    const { title, description } = this.form.value;
+    this.loadingController.create({ message: 'Updating place' }).then(loadingEl => {
+      loadingEl.present();
+      this.placesService.updatePlace(this.place.id, title, description).subscribe(places => {
+        console.log(places);
+        loadingEl.dismiss();
+        this.form.reset();
+        this.navCtrl.navigateBack('/places/tabs/offers');
+      });
+    });
   }
 }
