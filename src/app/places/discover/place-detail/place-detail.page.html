@@ -20,7 +20,7 @@
       </ion-col>
     </ion-row>
 
-    <ion-row class="ion-padding">
+    <ion-row class="ion-padding" *ngIf="isBookable">
       <ion-col size-sm="6" offset-sm="3">
         <ion-button color="primary" (click)="onBookPlace()">Book</ion-button>
       </ion-col>
